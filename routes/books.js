@@ -1,13 +1,13 @@
 var express = require('express');
 var router = express.Router();
-var knex = require('../db/knex');
+// var knex = require('../db/knex');
 
-function Books() {
-  return knex('books')
-}
-function Authors() {
-  return knex('authors')
-}
+// function Books() {
+//   return knex('books')
+// }
+// function Authors() {
+//   return knex('authors')
+// }
 /* GET home page. */
 // router.get('/', function(req, res, next) {
 //   Books().fullOuterJoin('authbook_junction', 'books.id', 'authbook_junction.id').then(function (books) {
