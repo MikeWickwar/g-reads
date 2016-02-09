@@ -12,6 +12,8 @@ var books = require('./routes/books');
 var authors = require('./routes/authors');
 
 var app = express();
+var knex = require('./db/knex');
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
