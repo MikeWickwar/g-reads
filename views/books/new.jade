@@ -1,22 +1,21 @@
 extends ../layout
 
 block content
-
-  form(action="/books" method="post")
-    div.form-group
-      label(for="title") Title
-      input.form-control(type="text" id="subject" placeholder="Title" name="subject")
-      label(for="genre") Genre
-      input.form-control(type="text" id="subject" placeholder="Genre" name="subject")
-      label(for="cover_url") Cover Image Url
-      input.form-control(type="text" id="cover_url" placeholder="Cover Image Url" name="body")
-      label(for="description") Description
-      input.form-control(type="text" id="description" placeholder="Description" name="body")
-      label(for="authors_display") Authors 
-      input.form-control(type="text" id="authors_display" name="body" value="value of authors array?")
-      label(for="authors_list")
-      select.form-control(id="authors_list" name="authors_list")
-        for author in authors
-          option #{author.first_name} #{author.last_name}
-  button(type="Add Author" href="#") Add Author
-    button.btn.btn-primary(type="submit") Add A Book
+  .row
+    .col-md-10.col-sm-12
+      form(action="/books" method="post")
+        div.form-group
+          label(for="title") Title
+          input.form-control(type="text" id="subject" placeholder="Title" name="subject")
+          label(for="genre") Genre
+          input.form-control(type="text" id="subject" placeholder="Genre" name="subject")
+          label(for="cover_url") Cover Image Url
+          input.form-control(type="text" id="cover_url" placeholder="Cover Image Url" name="body")
+          label(for="description") Description
+          input.form-control(type="text" id="description" placeholder="Description" name="body")
+          label(for="authors_list") Authors...
+          select.form-control(id="authors_list" name="authors_list")
+            option(value= "")
+            for author in authors
+              option(value= author.id) #{author.first_name} #{author.last_name}
+        button.btn.btn-primary(type="submit") Add A Book
