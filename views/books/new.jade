@@ -6,15 +6,15 @@ block content
       form(action="/books" method="post")
         div.form-group
           label(for="title") Title
-          input.form-control(type="text" id="subject" placeholder="Title" name="subject")
+          input.form-control(type="text" id="title" placeholder="Title" name="title")
           label(for="genre") Genre
-          input.form-control(type="text" id="subject" placeholder="Genre" name="subject")
+          input.form-control(type="text" id="genre" placeholder="Genre" name="genre")
           label(for="cover_url") Cover Image Url
-          input.form-control(type="text" id="cover_url" placeholder="Cover Image Url" name="body")
+          input.form-control(type="text" id="cover_url" placeholder="Cover Image Url" name="cover_url")
           label(for="description") Description
-          input.form-control(type="text" id="description" placeholder="Description" name="body")
-          label(for="authors_list") Authors...
-          select.form-control(id="authors_list" name="authors_list")
+          input.form-control(type="text" id="description" placeholder="Description" name="description")
+          label(for="author_id") Authors...
+          select.form-control(id="author_id" name="author_id")
             option(value= "")
             for author in authors
               option(value= author.id) #{author.first_name} #{author.last_name}
