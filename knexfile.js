@@ -12,8 +12,8 @@ module.exports = {
   production: {
     client: 'pg',
     connection: process.env.DATABASE_URL + '?ssl=true',
-    seeds: {
-      directory: './seeds'
-    }
+    // seeds: {
+    //   directory: './seeds'
+    // }
   }
 };
