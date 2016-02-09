@@ -32,9 +32,7 @@ function Authbooks() {
      var authEntry = {
        author_id: req.body.author_id,
        book_id: results[0]
-     }
-    console.log("********");
-     console.log(results[0]);
+     }  
      Authbooks().select().insert(authEntry).then(
        res.send('check yo db. you postit')
       )
