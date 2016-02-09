@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+  .row
+    .col-md-10.col-sm-12
+      form(action="/books/#{book.id}/edit" method="post")
+        div.form-group
+          label(for="title") Title
+          input.form-control(type="text" id="title" placeholder= book.title name="title")
+          label(for="genre") Genre
+          input.form-control(type="text" id="genre" placeholder= book.genre name="genre")
+          label(for="cover_url") Cover Image Url
+          input.form-control(type="text" id="cover_url" placeholder= book.cover_url name="cover_url")
+          label(for="description") Description
+          input.form-control(type="text" id="description" placeholder= book.description name="description")
+          label(for="author_id") Authors...
+          select.form-control(id="author_id" name="author_id")
+            option(value= "")
+              for author in authors
+                option(value= author.id) #{author.first_name} #{author.last_name}
+          button.btn.btn-primary(type="submit") Add A Book
+            h1= book.id
+            for author in authors
+              h1= author.book_id
