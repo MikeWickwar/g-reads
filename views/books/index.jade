@@ -2,3 +2,8 @@ extends ../layout
 
 block content
   h1 here are youre moflipping #{title} dig back.
+  for book in books
+    h1= book.title
+    for author in authors
+      if author.book_id === book.id
+        h2= author.first_name
