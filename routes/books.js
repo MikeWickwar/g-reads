@@ -17,7 +17,14 @@ function Authors() {
      })
    })
  });
- //gotcha
+
+ router.get('/:id', function (req, res, next) {
+   Books().where('books.id', req.params.id).then(function (books) {
+      Authors().fullOuterJoin('authbook_junction', 'authors.id', 'authbook_junction.author_id').then(function (authors) {
+     res.render('books/index', {title: 'individual book still on index view', books: books, authors: authors})
+    })
+  })
+})
 
 
 module.exports = router;
