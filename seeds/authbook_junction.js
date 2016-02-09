@@ -12,6 +12,6 @@ exports.seed = function(knex, Promise) {
     knex('authbook_junction').insert({id: 5, book_id: '3', author_id: '5'}),
     knex('authbook_junction').insert({id: 6, book_id: '4', author_id: '6'}),
     knex('authbook_junction').insert({id: 7, book_id: '5', author_id: '6'}),
-    knex('authbook_junction').insert({id: 8, book_id: '6', author_id: '6'})
+    knex('authbook_junction').insert({id: 8, book_id: '6', author_id: '6'}) 
   );
 };

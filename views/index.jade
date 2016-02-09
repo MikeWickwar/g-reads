@@ -1,6 +1,10 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-    p HERE I AM
+  div.main_container
+    a.bbcontainer(href='/books')
+      img.mainpic(src='https://pixabay.com/static/uploads/photo/2016/01/27/04/32/books-1163695_960_720.jpg')
+      h1 Books
+    a.bbcontainer(href='/authors')
+      img.mainpic(src='https://pixabay.com/static/uploads/photo/2016/01/26/05/29/type-1161949_960_720.jpg')
+      h1 Authors
