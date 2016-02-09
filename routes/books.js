@@ -18,6 +18,12 @@ function Authors() {
    })
  });
 
+ router.get('/new', function (req, res, next) {
+   Authors().select().then(function (authors) {
+     res.render('books/new', {authors: authors})
+   })
+ })
+
  router.get('/:id', function (req, res, next) {
    Books().where('books.id', req.params.id).then(function (books) {
       Authors().fullOuterJoin('authbook_junction', 'authors.id', 'authbook_junction.author_id').then(function (authors) {
@@ -25,6 +31,7 @@ function Authors() {
     })
   })
 })
+
 
 
 module.exports = router;
