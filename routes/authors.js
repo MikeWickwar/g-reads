@@ -19,10 +19,10 @@ router.get('/', function(req, res, next) {
     })
   })
 })
-
+//start here fix the query
 router.get('/:id', function (req, res, next) {
   Authors().where('authors.id', req.params.id).then(function (authors) {
-    Books().fullOuterJoin('authbook_junction', 'books.id', 'authbook_junction.author_id').then(function (books) {
+    Books().fullOuterJoin('authbook_junction', 'books.id', 'authbook_junction.book_id').then(function (books) {
     res.render('authors/index', {title: 'individual book still on index view', books: books, authors: authors})
     })
   })
