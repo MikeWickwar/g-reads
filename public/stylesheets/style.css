@@ -91,3 +91,6 @@ button{
   display: flex;
   flex-direction: row;
 }
+.shiftup{
+  margin-top: -11%;
+}
