@@ -27,3 +27,25 @@ a {
   height: 50vh;
   width: 40vw;
 }
+.sidepic{
+  height: 40vh;
+  width: 10vw;
+  position: absolute;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+}
+.lowerpic{
+  margin-top: 31vh;
+}
+.fa-pencil{
+  position: relative;;
+  z-index: 1;
+}
+.sidenav{
+  /*background-color: red;*/
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+}

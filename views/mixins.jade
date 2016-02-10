@@ -19,3 +19,14 @@ mixin panel(heading, style)
       .panel-heading= heading
       .panel-body
           block
+          
+mixin sideNav()
+  .sidenav.col-lg-2
+    .toppic
+      a(href='/books')
+        img.sidepic(src='https://pixabay.com/static/uploads/photo/2016/01/26/05/29/type-1161949_960_720.jpg')
+        i.fa.fa-book.fa-5x
+    .lowerpic
+      a(href='/authors')
+        img.sidepic(src='https://pixabay.com/static/uploads/photo/2016/01/27/04/32/books-1163695_960_720.jpg')
+        i.fa.fa-pencil-square.fa-5x

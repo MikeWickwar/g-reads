@@ -1,7 +1,9 @@
 extends ../layout
+include ../mixins
 
 block content
   .row-flow
+    +sideNav()
     .col-lg-7.col-md-6.col-sm-12
       h1 here are youre moflipping #{title} dig back.
       for book in books
