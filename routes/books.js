@@ -85,7 +85,7 @@ router.post('/:id/edit', function (req, res, next) {
 
 router.post('/:id/delete', function (req, res, next) {
     Books().where('books.id', req.params.id).del().then(
-      res.redirect('/')
+      res.redirect('/authors')
     )
   })
 
