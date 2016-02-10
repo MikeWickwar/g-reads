@@ -23,6 +23,10 @@ a {
   align-items: center;
   margin: 2%;
 }
+.centerme{
+  display: flex;
+  justify-content: center;
+}
 .mainpic{
   height: 50vh;
   width: 40vw;
@@ -36,16 +40,20 @@ a {
   flex-direction: column;
 }
 .lowerpic{
-  margin-top: 31vh;
 }
-.fa-pencil{
+.immaIcon{
   position: relative;;
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  margin-top: 3vh;
 }
 .sidenav{
   /*background-color: red;*/
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-
+  height: 40vh;
+  width: 10vw;
+  margin-right: 2vh;
 }

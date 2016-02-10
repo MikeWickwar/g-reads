@@ -7,7 +7,7 @@ mixin nav(name, id, style)
                span.icon-bar
                span.icon-bar
                span.icon-bar
-           a.navbar-brand(href="/dashboard")= name
+           a.navbar-brand(href="/")= name
 
        .collapse.navbar-collapse( id=id )
            ul.nav.navbar-nav
@@ -20,13 +20,16 @@ mixin panel(heading, style)
       .panel-body
           block
           
-mixin sideNav()
-  .sidenav.col-lg-2
-    .toppic
+mixin sideNav(style)
+  - var style = (typeof style === 'undefined') ? "default" : style
+    .sidenav.col-lg-2.col-md-2
       a(href='/books')
-        img.sidepic(src='https://pixabay.com/static/uploads/photo/2016/01/26/05/29/type-1161949_960_720.jpg')
-        i.fa.fa-book.fa-5x
-    .lowerpic
+        .sidenav
+          .toppic
+            img.sidepic(src='https://pixabay.com/static/uploads/photo/2016/01/26/05/29/type-1161949_960_720.jpg')
+            i.fa.fa-book.fa-5x.immaIcon
       a(href='/authors')
-        img.sidepic(src='https://pixabay.com/static/uploads/photo/2016/01/27/04/32/books-1163695_960_720.jpg')
-        i.fa.fa-pencil-square.fa-5x
+        .sidenav
+          .lowerpic
+            img.sidepic(src='https://pixabay.com/static/uploads/photo/2016/01/27/04/32/books-1163695_960_720.jpg')
+            i.fa.fa-pencil-square.fa-5x.immaIcon
