@@ -50,6 +50,7 @@ router.get('/:id', function (req, res, next) {
   Books().where('books.id', req.params.id).then(function (books) {
     Authors().fullOuterJoin('authbook_junction', 'authors.id', 'authbook_junction.author_id').then(function (authors) {
     res.render('books/index', {title: 'individual book still on index view', books: books, authors: authors})
+    })
   })
 })
 
@@ -82,6 +83,11 @@ router.post('/:id/edit', function (req, res, next) {
   })
 })
 
+router.post('/:id/delete', function (req, res, next) {
+    Books().where('books.id', req.params.id).del().then(
+      res.redirect('/')
+    )
 })
+
 
 module.exports = router;
