@@ -17,7 +17,7 @@ block content
           input.form-control(type="text" id="description" placeholder="Description" name="description")
           label(for="author_id") Authors...
           select.form-control(id="author_id" name="author_id")
-            option(value= "")
+            option(value= " ")
             for author in authors
               option(value= author.id) #{author.first_name} #{author.last_name}
         button.btn.btn-primary(type="submit") Add A Book

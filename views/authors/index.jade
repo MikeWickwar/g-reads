@@ -20,7 +20,7 @@ block content
                     a(href="/authors/#{author.id}/edit")
                       button() Edit
                     if authors.length > 1
-                      form(action="authors/#{author.id}/delete" method="post")
+                      form(action="/authors/#{author.id}/delete" method="post")
                         button(type="submit") Remove
               p #{author.bio}
               h4.books Books...
@@ -29,5 +29,5 @@ block content
                     a(href="/books/#{book.book_id}")
                       h4= book.title
               if authors.length === 1
-                form(action="authors/#{author.id}/delete" method="post")
+                form(action="/authors/#{author.id}/delete" method="post")
                   button(type="submit") Delete Author

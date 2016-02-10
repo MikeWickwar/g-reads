@@ -16,8 +16,8 @@ block content
           label(for="bio") Biography
           input.form-control(type="text" id="bio" placeholder="bio..." name="bio")
           label(for="author_id") Books...
-          select.form-control(id="author_id" name="author_id")
-            option(value= "")
+          select.form-control(id="author_id" name="author_id" type="multiple")
+            option(value= " ")
             for book in books
               option(value= book.id) #{book.title}
         button.btn.btn-primary(type="submit") Add Author

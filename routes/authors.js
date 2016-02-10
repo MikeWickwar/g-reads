@@ -20,6 +20,24 @@ router.get('/', function(req, res, next) {
   })
 })
 
+router.post('/', function (req, res, next) {
+  var authorEntry = {
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    bio: req.body.bio,
+    portrait_url: req.body.portrait_url
+  }
+  Authors().select().insert(authorEntry).returning('id').then(function(results){
+    var authEntry = {
+      author_id: results[0],
+      book_id: req.body.book_id
+     }
+    Authbooks().select().insert(authEntry).then(
+     res.redirect('/authors')
+     )
+   })
+ })
+
 router.get('/new', function (req, res, next) {
  Books().select().then(function (books) {
    res.render('authors/new', {books: books})

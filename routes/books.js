@@ -31,10 +31,10 @@ router.post('/', function (req, res, next) {
   Books().select().insert(booksEntry).returning('id').then(function(results){
     var authEntry = {
       author_id: req.body.author_id,
-     book_id: results[0]
+      book_id: results[0]
      }
     Authbooks().select().insert(authEntry).then(
-     res.send('check yo db. you postit')
+     res.redirect('/books')
      )
    })
  })
@@ -56,10 +56,7 @@ router.get('/:id', function (req, res, next) {
 
 router.get('/:id/edit', function (req, res, next) {
   Books().where('books.id', req.params.id).first().then(function (book) {
-    Authors().join('authbook_junction', 'authors.id', 'authbook_junction.author_id').then(function (authors) {
-      console.log(book.id);
-      console.log('*******');
-      console.log(authors);
+    Authors().select().then(function (authors) {
       res.render('books/edit', {book: book, authors: authors})
     })
   })
