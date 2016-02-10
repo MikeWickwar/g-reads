@@ -7,7 +7,6 @@ block content
       +sideNav()
     .row-flow.centerme
       .col-lg-7.col-md-6.col-sm-12
-        h1 here are youre moflipping #{title} dig back.
         for author in authors
           +panel(author.first_name + ' ' + author.last_name, 'info')
             .col-md-4.col-lg-4
@@ -26,7 +25,7 @@ block content
               h4.books Books...
                 for book in books
                   if author.id === book.author_id
-                    a(href="/books/#{book.id}")
+                    a(href="/books/#{book.book_id}")
                       h4= book.title
               if authors.length === 1
                 form(action="authors/#{author.id}/delete" method="post")
