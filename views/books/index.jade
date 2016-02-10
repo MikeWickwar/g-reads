@@ -18,8 +18,8 @@ block content
                     h1= book.title
                   h3 By
                     for author in authors
-                      if author.book_id === book.id
-                        a(href='/authors/#{author.id}')
+                      if book.id === author.book_id
+                        a(href='/authors/#{author.author_id}')
                           h4 #{author.first_name} #{author.last_name}
                   .floatRight.shiftup
                     a(href='/books/#{book.id}/edit').noDec
