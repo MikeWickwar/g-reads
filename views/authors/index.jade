@@ -1,4 +1,15 @@
 extends ../layout
 
 block content
-  h1 here are youre moflipping #{title} dig back.
+  .row-flow
+    .col-lg-7.col-md-6.col-sm-12
+      h1 here are youre moflipping #{title} dig back.
+      for author in authors
+        +panel(author.first_name + ' ' + author.last_name, 'info')
+          a(href="/authors/#{author.id}")
+            h1= author.first_name + author.last_name
+          form(action="/authors/#{author.id}/delete" method="post")
+            button(type="submit") Delete Author
+          for book in books
+            if author.id === book.author_id
+              h2= book.title
