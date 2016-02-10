@@ -17,7 +17,8 @@ block content
                   a(href="/authors/#{author.id}")
                     h1= author.first_name + author.last_name
                   .floatRight
-                    button() Edit
+                    a(href="/authors/#{author.id}/edit")
+                      button() Edit
                     if authors.length > 1
                       form(action="authors/#{author.id}/delete" method="post")
                         button(type="submit") Remove

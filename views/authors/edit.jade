@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+  .row-flow
+    +sideNav()
+  .row-flow.centerme
+    .col-md-6.col-sm-12
+      form(action="/authors" method="post")
+        div.form-group
+          label(for="first_name") First Name
+          input.form-control(type="text" id="first_name" value= author.first_name name="first_name")
+          label(for="last_name") Last Name
+          input.form-control(type="text" id="last_name" value= author.last_name name="last_name")
+          label(for="portrait_url") Portrait Url
+          input.form-control(type="text" id="portrait_url" value= author.portrait_url name="portrait_url")
+          label(for="bio") Biography
+          input.form-control(type="text" id="bio" value= author.bio name="bio")
+          label(for="author_id") Books...
+          select.form-control(id="author_id" name="author_id")
+            option(value= "")
+            for book in books
+              option(value= book.id) #{book.title}
+        button.btn.btn-primary(type="submit") Edit Author

@@ -20,10 +20,25 @@ router.get('/', function(req, res, next) {
   })
 })
 
+router.get('/new', function (req, res, next) {
+ Books().select().then(function (books) {
+   res.render('authors/new', {books: books})
+  })
+})
+
+
 router.get('/:id', function (req, res, next) {
   Authors().where('authors.id', req.params.id).then(function (authors) {
     Books().fullOuterJoin('authbook_junction', 'books.id', 'authbook_junction.book_id').then(function (books) {
     res.render('authors/index', {title: 'individual book still on index view', books: books, authors: authors})
+    })
+  })
+})
+
+router.get('/:id/edit', function (req, res, next) {
+  Authors().where('authors.id', req.params.id).first().then(function (author) {
+    Books().join('authbook_junction', 'books.id', 'authbook_junction.author_id').then(function (books) {
+      res.render('authors/edit', {books: books, author: author})
     })
   })
 })

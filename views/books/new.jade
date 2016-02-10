@@ -1,8 +1,10 @@
 extends ../layout
 
 block content
-  .row
-    .col-md-10.col-sm-12
+  .row-flow
+    +sideNav()
+  .row-flow.centerme
+    .col-md-6.col-sm-12
       form(action="/books" method="post")
         div.form-group
           label(for="title") Title
