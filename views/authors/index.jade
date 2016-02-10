@@ -8,7 +8,7 @@ block content
         +panel(author.first_name + ' ' + author.last_name, 'info')
           a(href="/authors/#{author.id}")
             h1= author.first_name + author.last_name
-          form(action="/authors/#{author.id}/delete" method="post")
+          form(action="authors/#{author.id}/delete" method="post")
             button(type="submit") Delete Author
           for book in books
             if author.id === book.author_id

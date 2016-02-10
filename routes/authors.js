@@ -18,6 +18,12 @@ router.get('/', function(req, res, next) {
       res.render('authors/index', { title: 'AUTHORS', authors: authors, books: books });
     })
   })
-});
+})
+
+router.post('/:id/delete', function (req, res, next) {
+  Authors().where('authors.id', req.params.id).del().then(
+    res.redirect('/')
+  )
+})
 
 module.exports = router;

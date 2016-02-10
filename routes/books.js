@@ -87,7 +87,7 @@ router.post('/:id/delete', function (req, res, next) {
     Books().where('books.id', req.params.id).del().then(
       res.redirect('/')
     )
-})
+  })
 
 
 module.exports = router;
