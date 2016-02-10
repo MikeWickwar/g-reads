@@ -19,13 +19,15 @@ block content
                     h1= author.first_name + author.last_name
                   .floatRight
                     button() Edit
-                    button() Remove
+                    if authors.length > 1
+                      form(action="authors/#{author.id}/delete" method="post")
+                        button(type="submit") Remove
               p #{author.bio}
               h4.books Books...
                 for book in books
                   if author.id === book.author_id
                     a(href="/books/#{book.id}")
                       h4= book.title
-                if authors.length === 1
-                  form(action="authors/#{author.id}/delete" method="post")
-                    button(type="submit") Delete Author
+              if authors.length === 1
+                form(action="authors/#{author.id}/delete" method="post")
+                  button(type="submit") Delete Author

@@ -10,12 +10,25 @@ block content
         h1 here are youre moflipping #{title} dig back.
         for book in books
           +panel(book.title, 'info')
-            a(href="/books/#{book.id}")
-              h1= book.title
-            form(action="/books/#{book.id}/delete" method="post")
-              button(type="submit") Delete Book
-            a(href='/books/#{book.id}/edit').noDec
-              button() Edit Book
-            for author in authors
-              if author.book_id === book.id
-                h2= author.first_name
+            .col-md-4.col-lg-4
+              img.postimg(src= book.cover_url)
+            .col-lg-8.col-md-8
+              .row-flow
+                .col-md-12.col-lg-12.nameButton
+                  a(href="/books/#{book.id}")
+                    h1= book.title
+                  .floatRight
+                    a(href='/books/#{book.id}/edit').noDec
+                      button() Edit
+                    if books.length > 1
+                      form(action="/books/#{book.id}/delete" method="post")
+                        button(type="submit") Remove
+            p #{book.description}
+            h4.books
+              for author in authors
+                if author.book_id === book.id
+                  h2= author.first_name
+            if books.length === 1
+              form(action="/books/#{book.id}/delete" method="post")
+                button(type="submit") Delete Book
+            
