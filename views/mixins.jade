@@ -12,3 +12,10 @@ mixin nav(name, id, style)
        .collapse.navbar-collapse( id=id )
            ul.nav.navbar-nav
                block
+
+mixin panel(heading, style)
+  - var style = (typeof style === 'undefined') ? "default" : style
+  div( class=["panel", "panel-" + style] )
+      .panel-heading= heading
+      .panel-body
+          block
