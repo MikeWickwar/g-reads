@@ -57,7 +57,9 @@ router.get('/:id', function (req, res, next) {
 router.get('/:id/edit', function (req, res, next) {
   Books().where('books.id', req.params.id).first().then(function (book) {
     Authors().select().then(function (authors) {
-      res.render('books/edit', {book: book, authors: authors})
+        Books().fullOuterJoin('authbook_junction', '.id', 'authbook_junction.author_id').then(function (junction) {
+          res.render('books/edit', {book: book, authors: authors, junction: junction})
+      })
     })
   })
 })

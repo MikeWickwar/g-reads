@@ -61,6 +61,24 @@ router.get('/:id/edit', function (req, res, next) {
   })
 })
 
+router.post('/:id', function (req, res, next) {
+  var authorEntry = {
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    bio: req.body.bio,
+    portrait_url: req.body.portrait_url
+  }
+  Authors().where('authors.id', req.params.id).update(authorEntry).then(function(results){
+    var authEntry = {
+      author_id: req.params.id,
+      book_id: req.body.book_id
+     }
+    Authbooks().where('author_id', req.params.id).update(authEntry).then(
+     res.redirect('/authors')
+     )
+   })
+ })
+
 router.post('/:id/delete', function (req, res, next) {
   Authors().where('authors.id', req.params.id).del().then(
     res.redirect('/authors')

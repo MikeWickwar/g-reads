@@ -55,8 +55,8 @@ button{
 .postimg{
   border: 2px solid black;
   margin:4px;
-  height: 30vh;
-  width: 12vw;
+  height: 200px;
+  width: 160px;
 }
 .immaIcon{
   position: relative;;
@@ -73,6 +73,7 @@ button{
   height: 40vh;
   width: 10vw;
   margin-right: 2vh;
+  position: fixed;
 }
 .noDec{
   text-decoration: none;

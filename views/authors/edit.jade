@@ -5,7 +5,7 @@ block content
     +sideNav()
   .row-flow.centerme
     .col-md-6.col-sm-12
-      form(action="/authors" method="post")
+      form(action="/authors/#{author.id}" method="post")
         div.form-group
           label(for="first_name") First Name
           input.form-control(type="text" id="first_name" value= author.first_name name="first_name")
@@ -16,7 +16,7 @@ block content
           label(for="bio") Biography
           input.form-control(type="text" id="bio" value= author.bio name="bio")
           label(for="author_id") Books...
-          select.form-control(id="author_id" name="author_id")
+          select.form-control(id="book_id" name="book_id")
             option(value= "")
             for book in books
               option(value= book.id) #{book.title}
