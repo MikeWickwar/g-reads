@@ -30,7 +30,7 @@ router.get('/:id', function (req, res, next) {
 
 router.post('/:id/delete', function (req, res, next) {
   Authors().where('authors.id', req.params.id).del().then(
-    res.redirect('/')
+    res.redirect('/authors')
   )
 })
 
