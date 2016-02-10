@@ -11,9 +11,8 @@ mixin nav(name, id, style)
 mixin panel(heading, style)
   - var style = (typeof style === 'undefined') ? "default" : style
   div( class=["panel", "panel-" + style] )
-      .panel-heading= heading
-      .panel-body
-          block
+    .panel-body
+        block
           
 mixin sideNav(style)
   - var style = (typeof style === 'undefined') ? "default" : style

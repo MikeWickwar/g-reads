@@ -2,17 +2,30 @@ extends ../layout
 include ../mixins
 
 block content
-  .row-flow
-    +sideNav()
-  .row-flow.centerme
-    .col-lg-7.col-md-6.col-sm-12
-      h1 here are youre moflipping #{title} dig back.
-      for author in authors
-        +panel(author.first_name + ' ' + author.last_name, 'info')
-          a(href="/authors/#{author.id}")
-            h1= author.first_name + author.last_name
-          form(action="authors/#{author.id}/delete" method="post")
-            button(type="submit") Delete Author
-          for book in books
-            if author.id === book.author_id
-              h2= book.title
+  body
+    .row-flow
+      +sideNav()
+    .row-flow.centerme
+      .col-lg-7.col-md-6.col-sm-12
+        h1 here are youre moflipping #{title} dig back.
+        for author in authors
+          +panel(author.first_name + ' ' + author.last_name, 'info')
+            .col-md-4.col-lg-4
+              img.postimg(src= author.portrait_url)
+            .col-lg-8.col-md-8
+              .row-flow
+                .col-md-12.col-lg-12.nameButton
+                  a(href="/authors/#{author.id}")
+                    h1= author.first_name + author.last_name
+                  .floatRight
+                    button() Edit
+                    button() Remove
+              p #{author.bio}
+              h4.books Books...
+                for book in books
+                  if author.id === book.author_id
+                    a(href="/books/#{book.id}")
+                      h4= book.title
+                if authors.length === 1
+                  form(action="authors/#{author.id}/delete" method="post")
+                    button(type="submit") Delete Author
