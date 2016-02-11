@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var knex = require('../db/knex');
-var validate = require('../lib/validations')
+var validate = require('../lib/validationsAuthor')
 
 function Books() {
   return knex('books')
