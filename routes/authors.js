@@ -83,16 +83,17 @@ router.post('/:id', function (req, res, next) {
         res.render('authors/edit', {errors: errors, books: books, author: author})
       })
     })
+  }else{
+    Authors().where('authors.id', req.params.id).update(authorEntry).then(function(results){
+      var authEntry = {
+        author_id: req.params.id,
+        book_id: req.body.book_id
+       }
+      Authbooks().where('author_id', req.params.id).update(authEntry).then(
+       res.redirect('/authors')
+       )
+     })
   }
-  Authors().where('authors.id', req.params.id).update(authorEntry).then(function(results){
-    var authEntry = {
-      author_id: req.params.id,
-      book_id: req.body.book_id
-     }
-    Authbooks().where('author_id', req.params.id).update(authEntry).then(
-     res.redirect('/authors')
-     )
-   })
  })
 
 router.post('/:id/delete', function (req, res, next) {
